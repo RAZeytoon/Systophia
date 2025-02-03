@@ -8,22 +8,22 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "هنرپرداز",
+    pageTitle: "سیستوفیا",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "fa-IR",
-    baseUrl: "eledah.ir/honarpardaz",
+    baseUrl: "Systophia.ir",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Vazirmatn",
-        body: "Vazirmatn",
+        header: "sahel",
+        body: "sahel",
         code: "IBM Plex Mono",
       },
       colors: {

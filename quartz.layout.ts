@@ -8,8 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      // "آپارات": "https://www.aparat.com/Crystalline",
-      // "گیت‌هاب": "https://github.com/eledah",
+      // "آپارات": "https://www.aparat.com/2zeytoon",
+      // "گیت‌هاب": "https://github.com/RAZeytoon",
     },
   }),
 }
