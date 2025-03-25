@@ -21,25 +21,25 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
   ],
   left: [
-    Component(Component.Graph()),
-    Component(Component.Backlinks()),
+    Component.(Component.Graph()),
+    Component.(Component.Backlinks()),
 
-    Component(Component.PageTitle()),
-    Component(Component.Darkmode()),
+    Component.(Component.PageTitle()),
+    Component.(Component.Darkmode()),
   ],
   right: [
-    Component(Component.PageTitle()),
+    Component.(Component.PageTitle()),
     Component.Search(),
-    Component(Component.Darkmode()),
-    Component(Component.Explorer({
+    Component.(Component.Darkmode()),
+    Component.(Component.Explorer({
       filterFn: (node) => {
         // exclude files with the tag "explorerexclude"
         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
       },
     })),
-    Component(Component.TableOfContents()),
+    Component.(Component.TableOfContents()),
 
-    Component(Component.Backlinks()),
+    Component.(Component.Backlinks()),
   ],
 }
 
@@ -47,14 +47,14 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component(Component.PageTitle()),
-    Component(Component.Darkmode()),
+    Component.(Component.PageTitle()),
+    Component.(Component.Darkmode()),
   ],
   right: [
-    Component(Component.PageTitle()),
+    Component.(Component.PageTitle()),
     Component.Search(),
-    Component(Component.Darkmode()),
-    Component(Component.Explorer({
+    Component.(Component.Darkmode()),
+    Component.(Component.Explorer({
       filterFn: (node) => {
         // exclude files with the tag "explorerexclude"
         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
