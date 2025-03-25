@@ -21,25 +21,25 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ArticleTitle(),
   ],
   left: [
-    Component.DesktopOnly(Component.Graph()),
-    Component.DesktopOnly(Component.Backlinks()),
+    Component(Component.Graph()),
+    Component(Component.Backlinks()),
 
-    Component.MobileOnly(Component.PageTitle()),
-    Component.MobileOnly(Component.Darkmode()),
+    Component(Component.PageTitle()),
+    Component(Component.Darkmode()),
   ],
   right: [
-    Component.DesktopOnly(Component.PageTitle()),
+    Component(Component.PageTitle()),
     Component.Search(),
-    Component.DesktopOnly(Component.Darkmode()),
-    Component.DesktopOnly(Component.Explorer({
+    Component(Component.Darkmode()),
+    Component(Component.Explorer({
       filterFn: (node) => {
         // exclude files with the tag "explorerexclude"
         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
       },
     })),
-    Component.DesktopOnly(Component.TableOfContents()),
+    Component(Component.TableOfContents()),
 
-    Component.MobileOnly(Component.Backlinks()),
+    Component(Component.Backlinks()),
   ],
 }
 
@@ -47,14 +47,14 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component.MobileOnly(Component.PageTitle()),
-    Component.MobileOnly(Component.Darkmode()),
+    Component(Component.PageTitle()),
+    Component(Component.Darkmode()),
   ],
   right: [
-    Component.DesktopOnly(Component.PageTitle()),
+    Component(Component.PageTitle()),
     Component.Search(),
-    Component.DesktopOnly(Component.Darkmode()),
-    Component.DesktopOnly(Component.Explorer({
+    Component(Component.Darkmode()),
+    Component(Component.Explorer({
       filterFn: (node) => {
         // exclude files with the tag "explorerexclude"
         return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
