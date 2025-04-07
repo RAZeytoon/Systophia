@@ -18,14 +18,14 @@ const config: QuartzConfig = {
     locale: "fa-IR",
     baseUrl: "systophia.ir",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-			header: "Vazirmatn",
-			body: "Vazirmatn",
-			code: "IBM Plex Mono",
+        header: "Vazirmatn",
+        body: "Vazirmatn",
+        code: "IBM Plex Mono",
       },
       colors: {
         lightMode: {
