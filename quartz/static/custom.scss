@@ -1,0 +1,6 @@
+html, body, .page, .markdown-preview-view {
+  direction: rtl;
+  text-align: right;
+}
+ol, ul       { margin-right: 1.5rem; }
+blockquote   { border-right: 4px solid var(--quartz-colors-secondary); border-left: none; }

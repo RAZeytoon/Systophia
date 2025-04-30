@@ -1,5 +1,6 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { sharedPageComponents } from "./quartz/cfg"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -8,8 +9,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      //: "https://github.com/jackyzha0/quartz",
-     // "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/jackyzha0/quartz",
+      "Discord Community": "https://discord.gg/cRFFHYye7t",
     },
   }),
 }
@@ -35,6 +36,7 @@ export const defaultContentPageLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer(),
@@ -65,3 +67,24 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [],
 }
+
+/* اضافه‌شدن باکس دیدگاه‌ها */
+sharedPageComponents.afterBody.push(
+  Component.Comments({
+    provider: "giscus",
+    options: {
+      repo:       "RAZeytoon/Discussions",
+      repoId:     "R_kgDOOiMSdA",
+      category:   "Announcements",
+      categoryId: "DIC_kwDOOiMSdM4CpoHX",
+
+      mapping:          "url",
+      strict:           false,
+      reactionsEnabled: true,
+      inputPosition:    "top",
+      lang:             "fa",
+      lightTheme:       "light_tritanopia",
+      darkTheme:        "transparent_dark",
+    },
+  }),
+)
