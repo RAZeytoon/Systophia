@@ -18,20 +18,6 @@ import { PhrasingContent } from "mdast-util-find-and-replace/lib"
 import { capitalize } from "../../util/lang"
 import { PluggableList } from "unified"
 
-// Add the isFarsi function here
-function isFarsi(text: string): boolean {
-  const farsiRange = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/;
-  const skipChars = /[\p{Emoji_Presentation}\p{Extended_Pictographic}\s\-\[\]{}\/\\#=@!*_\u200D(){}[\].,:»«]/u;
-  
-  for (const char of text) {
-    if (skipChars.test(char)) {
-      continue;
-    }
-    return farsiRange.test(char);
-  }
-  return false;
-}
-
 export interface Options {
   comments: boolean
   highlight: boolean
@@ -209,7 +195,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
           const [rawFp, rawHeader, rawAlias]: (string | undefined)[] = capture
 
           const [fp, anchor] = splitAnchor(`${rawFp ?? ""}${rawHeader ?? ""}`)
-          const blockRef = Boolean(rawHeader?.match(/^#?\^/)) ? "^" : ""
+          const blockRef = Boolean(anchor?.startsWith("^")) ? "^" : ""
           const displayAnchor = anchor ? `#${blockRef}${anchor.trim().replace(/^#+/, "")}` : ""
           const displayAlias = rawAlias ?? rawHeader?.replace("#", "|") ?? ""
           const embedDisplay = value.startsWith("!") ? "!" : ""
@@ -455,15 +441,14 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
 
                 const toggleIcon = `<div class="fold-callout-icon"></div>`
 
-                // Changed the location of ${collapse ? toggleIcon : ""}
                 const titleHtml: Html = {
                   type: "html",
                   value: `<div
                   class="callout-title"
                 >
-                  ${collapse ? toggleIcon : ""}
                   <div class="callout-icon"></div>
                   <div class="callout-title-inner">${title}</div>
+                  ${collapse ? toggleIcon : ""}
                 </div>`,
                 }
 
@@ -542,27 +527,6 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> 
     },
     htmlPlugins() {
       const plugins: PluggableList = [rehypeRaw]
-
-      plugins.push(() => {
-        return (tree: HtmlRoot) => {
-          visit(tree, 'element', (node) => {
-            if (node.tagName === 'p' || /^h[1-6]$/.test(node.tagName)) {
-              const textContent = node.children
-                .map(child => {
-                  if (child.type === 'text') return child.value;
-                  if (child.type === 'element') return (child as Element).children.map(c => c.type === 'text' ? (c as Literal).value : '').join('');
-                  return '';
-                })
-                .join('');
-              
-              if (textContent.length > 0) {
-                node.properties = node.properties || {}
-                node.properties.dir = isFarsi(textContent) ? 'rtl' : 'ltr'
-              }
-            }
-          })
-        }
-      })
 
       if (opts.parseBlockReferences) {
         plugins.push(() => {
