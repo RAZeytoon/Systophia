@@ -1,16 +1,29 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
-import { sharedPageComponents } from "./quartz/cfg"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'eledah/quartz_blog',
+        // from data-repo-id
+        repoId: 'R_kgDOLxbW_g',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOLxbW_s4ChRbJ',
+      }
+    }),
+  ],
   footer: Component.Footer({
     links: {
-      //: GitHub: "https://github.com/jackyzha0/quartz",
-      //: "Discord Community": "https://discord.gg/cRFFHYye7t",
+      // "آپارات": "https://www.aparat.com/Crystalline",
+      // "گیت‌هاب": "https://github.com/eledah",
     },
   }),
 }
@@ -18,33 +31,32 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
+    Component.Breadcrumbs(),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.Explorer(),
+    // Component.DesktopOnly(Component.Sidenotes()),
+    Component.DesktopOnly(Component.Graph()),
+    Component.DesktopOnly(Component.Backlinks()),
+
+    Component.MobileOnly(Component.PageTitle()),
+    Component.MobileOnly(Component.Darkmode()),
+    // Component.MobileOnly(Component.Search()),
   ],
   right: [
-    Component.Graph(),
+    Component.DesktopOnly(Component.PageTitle()),
+    Component.DesktopOnly(Component.Darkmode()),
+    Component.DesktopOnly(Component.Search()),
+    // Component.DesktopOnly(Component.Explorer({
+    //   filterFn: (node) => {
+    //     // exclude files with the tag "explorerexclude"
+    //     return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+    //   },
+    // })),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    Component.MobileOnly(Component.Backlinks()),
   ],
 }
 
@@ -52,39 +64,18 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component.PageTitle(),
-    Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-      ],
-    }),
-    Component.Explorer(),
+    Component.MobileOnly(Component.PageTitle()),
+    Component.MobileOnly(Component.Darkmode()),
   ],
-  right: [],
+  right: [
+    Component.DesktopOnly(Component.PageTitle()),
+    Component.Search(),
+    Component.DesktopOnly(Component.Darkmode()),
+    Component.DesktopOnly(Component.Explorer({
+      filterFn: (node) => {
+        // exclude files with the tag "explorerexclude"
+        return node.file?.frontmatter?.tags?.includes("explorerexclude") !== true
+      },
+    })),
+  ],
 }
-
-/* اضافه‌شدن باکس دیدگاه‌ها */
-//sharedPageComponents.afterBody.push(
-//  Component.Comments({
-//    provider: "giscus",
-//    options: {
-//      repo:       "RAZeytoon/Discussions",
-//      repoId:     "R_kgDOOiMSdA",
-//      category:   "Announcements",
-//      categoryId: "DIC_kwDOOiMSdM4CpoHX",
-//
-//      mapping:          "url",
-//      strict:           false,
-//      reactionsEnabled: true,
-//      inputPosition:    "top",
-//      lang:             "fa",
-//      lightTheme:       "light_tritanopia",
-//      darkTheme:        "transparent_dark",
-//    },
-//  }),
-// )

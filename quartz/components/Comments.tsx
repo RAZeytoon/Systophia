@@ -1,7 +1,4 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
-// @ts-ignore
-import script from "./scripts/comments.inline"
 
 type Options = {
   provider: "giscus"
@@ -10,9 +7,6 @@ type Options = {
     repoId: string
     category: string
     categoryId: string
-    themeUrl?: string
-    lightTheme?: string
-    darkTheme?: string
     mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
     strict?: boolean
     reactionsEnabled?: boolean
@@ -25,36 +19,83 @@ function boolToStringBool(b: boolean): string {
 }
 
 export default ((opts: Options) => {
-  const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
-    // check if comments should be displayed according to frontmatter
-    const disableComment: boolean =
-      typeof fileData.frontmatter?.comments !== "undefined" &&
-      (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
-    if (disableComment) {
+  const Comments: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
+    if (fileData.slug === "index") {
       return <></>
     }
-
-    return (
-      <div
-        class={classNames(displayClass, "giscus")}
-        data-repo={opts.options.repo}
-        data-repo-id={opts.options.repoId}
-        data-category={opts.options.category}
-        data-category-id={opts.options.categoryId}
-        data-mapping={opts.options.mapping ?? "url"}
-        data-strict={boolToStringBool(opts.options.strict ?? true)}
-        data-reactions-enabled={boolToStringBool(opts.options.reactionsEnabled ?? true)}
-        data-input-position={opts.options.inputPosition ?? "bottom"}
-        data-light-theme={opts.options.lightTheme ?? "light"}
-        data-dark-theme={opts.options.darkTheme ?? "dark"}
-        data-theme-url={
-          opts.options.themeUrl ?? `https://${cfg.baseUrl ?? "example.com"}/static/giscus`
-        }
-      ></div>
-    )
+    return <div class="giscus"></div>
   }
 
-  Comments.afterDOMLoaded = script
+  Comments.afterDOMLoaded = `
+    function getThemeUrl(theme) {
+      return \`https://cdn.jsdelivr.net/gh/eledah/quartz_blog/quartz/static/giscus-\${theme}.css\`
+    }
+
+    function getCurrentTheme() {
+      return document.documentElement.getAttribute("saved-theme") || "light"
+    }
+
+    const changeTheme = (theme) => {
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (!iframe) return
+
+      iframe.contentWindow.postMessage({
+        giscus: {
+          setConfig: {
+            theme: getThemeUrl(theme)
+          }
+        }
+      }, 'https://giscus.app')
+    }
+
+    function loadComments() {
+      const giscusContainer = document.querySelector(".giscus")
+      if (giscusContainer.hasChildNodes()) return
+
+      const giscusScript = document.createElement("script")
+      giscusScript.src = "https://giscus.app/client.js"
+      giscusScript.async = true
+      giscusScript.crossOrigin = "anonymous"
+      giscusScript.setAttribute("data-loading", "lazy")
+      giscusScript.setAttribute("data-emit-metadata", "0")
+      giscusScript.setAttribute("data-repo", "${opts.options.repo}")
+      giscusScript.setAttribute("data-repo-id", "${opts.options.repoId}")
+      giscusScript.setAttribute("data-category", "${opts.options.category}")
+      giscusScript.setAttribute("data-category-id", "${opts.options.categoryId}")
+      giscusScript.setAttribute("data-mapping", "${opts.options.mapping ?? "url"}")
+      giscusScript.setAttribute("data-strict", "${boolToStringBool(opts.options.strict ?? true)}")
+      giscusScript.setAttribute("data-reactions-enabled", "${boolToStringBool(opts.options.reactionsEnabled ?? true)}")
+      giscusScript.setAttribute("data-input-position", "${opts.options.inputPosition ?? "bottom"}")
+
+      const currentTheme = getCurrentTheme()
+      giscusScript.setAttribute("data-theme", getThemeUrl(currentTheme))
+      giscusScript.setAttribute("data-lang", "fa")
+      giscusContainer.appendChild(giscusScript)
+    }
+
+    function handleThemeChange(mutations) {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes" && mutation.attributeName === "saved-theme") {
+          const newTheme = getCurrentTheme()
+          changeTheme(newTheme)
+        }
+      })
+    }
+
+    const observer = new MutationObserver(handleThemeChange)
+    
+    function setupGiscus() {
+      loadComments()
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["saved-theme"] })
+    }
+
+    function cleanupGiscus() {
+      observer.disconnect()
+    }
+
+    document.addEventListener("nav", setupGiscus)
+    document.addEventListener("cleanup", cleanupGiscus)
+  `
 
   return Comments
 }) satisfies QuartzComponentConstructor<Options>
