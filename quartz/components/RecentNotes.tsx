@@ -18,9 +18,9 @@ interface Options {
 }
 
 const defaultOptions = (cfg: GlobalConfiguration): Options => ({
-  limit: 5,
+  limit: 3,
   linkToMore: false,
-  showTags: false,
+  showTags: true,
   filter: () => true,
   sort: byDateAndAlphabetical(cfg),
 })
