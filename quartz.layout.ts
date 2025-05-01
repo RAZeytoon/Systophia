@@ -9,8 +9,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      //: GitHub: "https://github.com/jackyzha0/quartz",
+      //: "Discord Community": "https://discord.gg/cRFFHYye7t",
     },
   }),
 }
@@ -69,22 +69,22 @@ export const defaultListPageLayout: PageLayout = {
 }
 
 /* اضافه‌شدن باکس دیدگاه‌ها */
-sharedPageComponents.afterBody.push(
-  Component.Comments({
-    provider: "giscus",
-    options: {
-      repo:       "RAZeytoon/Discussions",
-      repoId:     "R_kgDOOiMSdA",
-      category:   "Announcements",
-      categoryId: "DIC_kwDOOiMSdM4CpoHX",
-
-      mapping:          "url",
-      strict:           false,
-      reactionsEnabled: true,
-      inputPosition:    "top",
-      lang:             "fa",
-      lightTheme:       "light_tritanopia",
-      darkTheme:        "transparent_dark",
-    },
-  }),
-)
+//sharedPageComponents.afterBody.push(
+//  Component.Comments({
+//    provider: "giscus",
+//    options: {
+//      repo:       "RAZeytoon/Discussions",
+//      repoId:     "R_kgDOOiMSdA",
+//      category:   "Announcements",
+//      categoryId: "DIC_kwDOOiMSdM4CpoHX",
+//
+//      mapping:          "url",
+//      strict:           false,
+//      reactionsEnabled: true,
+//      inputPosition:    "top",
+//      lang:             "fa",
+//      lightTheme:       "light_tritanopia",
+//      darkTheme:        "transparent_dark",
+//    },
+//  }),
+// )
