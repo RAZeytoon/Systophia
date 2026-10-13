@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "From data to insight: the pyramid that guides understanding (DIKW)"
 description: "Where the DIKW pyramid (data, information, knowledge, wisdom) came from, which question each level answers, the critiques of it, and why it matters to a systems analyst."
 translation: تحلیل-و-تحلیل-سیستم‌ها/از-داده-تا-بصیرت؛-هرمی-که-راهنمای-فهم-است-(DIKW)

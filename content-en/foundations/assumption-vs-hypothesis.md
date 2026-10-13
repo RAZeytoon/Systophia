@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Assumption versus hypothesis in requirements analysis"
 description: "An assumption is taken as true without checking, a hypothesis is a testable claim; why an analyst must separate the two and what to do with each."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/11-تفاوت-فرض-و-فرضیه-در-تحلیل-نیازمندی‌ها

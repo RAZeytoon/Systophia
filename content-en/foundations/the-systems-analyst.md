@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "What does a systems analyst do?"
 description: "The systems analyst as a holistic observer and a bridge between specialties; the relation of purpose, components and structure, with an ERP example."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/07-نقش-تحلیل‌گر-سیستم-چیست؟

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Theory first or data first: two views of data analysis"
 description: "Two traditions in data analysis: theory first and then data (hypothetico-deductive, Popper), or data first and then theory (grounded theory, Anderson); and what a systems analyst does between them."
 translation: تحلیل-و-تحلیل-سیستم‌ها/نظریه-اول-یا-داده-اول؛-دو-نگاه-به-تحلیل-داده

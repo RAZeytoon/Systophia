@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Expert systems and their role in analysis"
 description: "What an expert system is, from the idea of storing a specialist's knowledge to DENDRAL and Mycin, its components, how it works, uses, and its difference from modern AI."
 translation: مبانی-تحلیل-سیستم/03-فصل-سوم/20-آشنایی-با-سیستم‌های-خبره-و-نقش-آن‌ها-در-تحلیل

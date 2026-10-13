@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "What is a system? Definition, components and purpose"
 description: "The definition of a system, its three elements (components, relations, purpose), and the question of whether every system has a purpose."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/02-سیستم-چیست؟-تعریف،-اجزا-و-هدف

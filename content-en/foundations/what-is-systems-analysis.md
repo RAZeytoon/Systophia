@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "What is systems analysis, and why does it matter?"
 description: "An introduction to systems analysis: a first definition of \"system\" and \"analysis\", where it applies, and why it matters more for the future."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/01-تحلیل-سیستم-چیست-و-چرا-اهمیت-دارد؟

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "An introduction to systems analysis and why requirements matter"
 description: "Systems analysis in plain language, why we must analyse requirements properly, and the analyst's role in building a shared mental model."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/08-مقدمه‌ای-بر-تحلیل-سیستم‌ها-و-اهمیت-نیازمندی‌ها

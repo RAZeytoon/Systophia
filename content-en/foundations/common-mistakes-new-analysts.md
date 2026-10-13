@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Common mistakes of new analysts in requirements analysis"
 description: "Six common errors (not asking the right questions, undocumented assumptions, relying on explicit wishes, ignoring indirect stakeholders, vague documentation, ignoring change) and the remedy for each."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/13-اشتباهات-رایج-تحلیل‌گران-تازه‌کار-در-تحلیل-نیازمندی‌ها

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "An introduction to modelling requirements with use cases"
 description: "What a use case is, its five elements, an example of course registration, the use-case diagram, and the benefits of this tool for a systems analyst."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/14-مقدمه‌ای-بر-مدل‌سازی-نیازمندی‌ها-با-Use-Case

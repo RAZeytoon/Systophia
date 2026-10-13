@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Validating requirements"
 description: "The aim of validation, four techniques (group review, rapid prototyping, scenarios, a checklist of a valid requirement), output documents and common mistakes."
 translation: مبانی-تحلیل-سیستم/03-فصل-سوم/19-اعتبارسنجی-نیازمندی‌ها

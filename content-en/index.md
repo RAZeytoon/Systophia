@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Systophia"
 description: "A school of thought on systems thinking and systems analysis. English edition."
 translation: index

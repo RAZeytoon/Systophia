@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Automating a bad smell"
 description: "Technology is an enabler, not a miracle. Using the two-toilets story from Jānestān–Kābolestān, why automation on a broken process only repeats the fault faster."
 translation: طراحی-و-طراحی-سیستم‌ها/هوشمندسازی-روی-فرایند-معیوب،-یعنی-اتوماسیونِ-بوی-بد

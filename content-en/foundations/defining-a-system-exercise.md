@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "A practical exercise in defining a system"
 description: "Defining the university system step by step (boundary, goals, components and relations) and an exercise for defining urban transport."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/10-تمرین-عملی-در-تعریف-یک-سیستم

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "What is analysis, and why must an analyst think holistically?"
 description: "In systems thinking, analysis means decomposing and then connecting. And why a systems analyst, unlike a specialist, has to see the whole."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/03-تحلیل-چیست؟-چرا-تحلیل‌گر-باید-کل‌گرا-باشد؟

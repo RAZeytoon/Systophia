@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Defining versus analysing a system"
 description: "Definition fixes a system's boundary and nature, analysis explains how it works; with examples from a university, a dairy farm, the post, and city traffic."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/09-فرق-میان-«تعریف»-و-«تحلیل»-در-تحلیل-سیستم

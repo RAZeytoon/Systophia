@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "An introduction to gathering and analysing requirements"
 description: "Why understanding needs properly is the first and most important step of systems analysis, the two situations (the user knows / doesn't know what they want), and the analyst's role."
 translation: مبانی-تحلیل-سیستم/03-فصل-سوم/16-مقدمه‌ای-بر-جمع‌آوری-و-تحلیل-نیازمندی‌ها

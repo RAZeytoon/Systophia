@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "An introduction to the structure of a requirements document (SRS)"
 description: "What an SRS is, its recommended six-part structure, writing tips and a sample table for documenting a functional requirement."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/15-آشنایی-با-ساختار-سند-نیازمندی‌ها-(SRS)

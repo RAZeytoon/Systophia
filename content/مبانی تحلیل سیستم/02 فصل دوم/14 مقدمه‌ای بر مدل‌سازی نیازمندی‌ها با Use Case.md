@@ -1,4 +1,5 @@
 ---
+date: 2025-04-25
 title: مقدمه‌ای بر مدل‌سازی نیازمندی‌ها با Use Case
 description: Use Case چیست، پنج عنصر آن، یک مثال ثبت‌نام دروس، دیاگرام Use Case و مزایای این ابزار برای تحلیل‌گر سیستم.
 translation: foundations/use-case-modelling

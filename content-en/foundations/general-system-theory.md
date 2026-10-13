@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "General system theory: from Bertalanffy to today"
 description: "General system theory and Bertalanffy, the difference between a specialist view and a systems view, and why the problem often sits in the relation between parts rather than in the parts themselves."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/06-نظریه-عمومی-سیستم‌ها؛-از-برتالانفی-تا-امروز

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "A critique of modernity and a civilisational view of systems"
 description: "Spengler and the decline of the West, the question 'is man for civilisation, or civilisation for man?', and why a systems analyst should also think about the meaning and purpose of systems."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/05-نقد-مدرنیته-و-نگاه-تمدنی-به-سیستم‌ها

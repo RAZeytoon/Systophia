@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "The systems development life cycle (SDLC)"
 description: "The five stages of the systems development life cycle, how it is used in real projects, and how to treat it in agile projects."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/08-چرخه-حیات-توسعه-سیستم‌ها-(SDLC)

@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Holism and reductionism: two views in analysis"
 description: "Two views of the world, from Aristotle through Descartes and Newton to Spengler, and how systems analysis puts them side by side."
 translation: مبانی-تحلیل-سیستم/01-فصل-اول/04-کل‌گرایی-و-جزءگرایی---دو-دیدگاه-در-تحلیل

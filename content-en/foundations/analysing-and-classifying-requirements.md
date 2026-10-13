@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Analysing and classifying requirements"
 description: "How to give raw requirement data structure and classify it, resolve conflicts, prioritise (MoSCoW) and document it."
 translation: مبانی-تحلیل-سیستم/03-فصل-سوم/18-تحلیل-و-دسته‌بندی-نیازمندی‌ها

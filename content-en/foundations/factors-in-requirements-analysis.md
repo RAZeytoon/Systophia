@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Factors that matter in requirements analysis"
 description: "Six things to examine in requirements analysis (stakeholders, functional and non-functional needs, environment, limits, future change, and gathering method), each with key questions."
 translation: مبانی-تحلیل-سیستم/02-فصل-دوم/12-عوامل-مؤثر-در-تحلیل-نیازمندی‌ها

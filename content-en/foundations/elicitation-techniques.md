@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 title: "Techniques for gathering requirements"
 description: "Five main techniques (interview, questionnaire, observation, document review, group session) with their strengths and challenges, complementary methods, and when to use which."
 translation: مبانی-تحلیل-سیستم/03-فصل-سوم/17-تکنیک‌های-جمع‌آوری-نیازمندی‌ها
