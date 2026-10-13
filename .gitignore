@@ -2,3 +2,7 @@ node_modules/
 public/
 .quartz-cache/
 *.log
+
+content/.obsidian/workspace.json
+content/.obsidian/workspaces.json
+content/.obsidian/plugins/

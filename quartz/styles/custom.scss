@@ -1,408 +1,216 @@
 @use "./base.scss";
 
-// put your custom CSS here!
-
-html {
-    font-family: Vazirmatn, sans-serif !important;
+// فونت وزیرمتن روی خود سایت میزبانی می‌شود (مجوز OFL)، نه از Google Fonts
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./static/fonts/Vazirmatn-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
+// سایت راست‌به‌چپ است (dir="rtl" روی html). قاعده‌ها اینجا با ویژگی‌های منطقی (inline-start/end)
+// نوشته شده‌اند تا نسخه‌ی انگلیسی (dir="ltr") هم بدون دست‌کاری درست دربیاید.
+
+// --- ناوبری و پیمایش ---
+
 .breadcrumb-element p {
-	margin: 0 .5rem 0 0;
-	padding: 0;
-	line-height: normal;
+  margin: 0;
+  margin-inline-end: 0.5rem;
+  padding: 0;
+  line-height: normal;
 }
 
 button#explorer .fold {
-	opacity: .8;
-	transition: transform .3s;
+  opacity: 0.8;
+  transition: transform 0.3s;
 }
 
-.content-meta[show-comma="true"] > span:not(:last-child) {
-	margin-left: 8px !important;
-    margin-right: 0px !important;
+li:has(> .folder-outer:not(.open)) > .folder-container > svg {
+  transform: rotate(90deg) !important;
 }
 
-.tags {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+html[dir="ltr"] li:has(> .folder-outer:not(.open)) > .folder-container > svg {
+  transform: none !important;
 }
 
 .folder-icon {
-	margin-right: 0px !important;
-	margin-left: 5px !important;
+  margin-right: 0 !important;
+  margin-left: 5px !important;
+}
+
+html[dir="ltr"] .folder-icon {
+  margin-left: 0 !important;
+  margin-right: 5px !important;
 }
 
 #explorer-content ul {
-	padding-right: .5rem !important;
-	padding-left: 0px !important;
+  padding-inline-start: 0.5rem !important;
+  padding-inline-end: 0 !important;
 }
 
-.explorer {
-    border:1px solid var(--lightgray);
-    border-radius:5px;
-    padding:10px;
-    font-size:1rem;
-}
-
+.explorer,
 .toc {
-    border:1px solid var(--lightgray);
-    border-radius:5px;
-    padding:10px;
-    font-size:1rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
 }
 
 #toc-content .depth-0 {
-	padding: 0px !important;
-	padding-right: 1rem !important;
+  padding: 0 !important;
+  padding-inline-start: 1rem !important;
 }
 
 #toc-content .depth-1 {
-	padding: 0px !important;
-	padding-right: 1.5rem !important;
+  padding: 0 !important;
+  padding-inline-start: 1.5rem !important;
 }
 
 #toc-content .depth-2 {
-	padding: 0px !important;
-	padding-right: 2rem !important;
+  padding: 0 !important;
+  padding-inline-start: 2rem !important;
 }
 
 #toc-content .depth-3 {
-	padding: 0px !important;
-	padding-right: 2.5rem !important;
+  padding: 0 !important;
+  padding-inline-start: 2.5rem !important;
 }
 
 .backlinks > ul {
-    border: 1px solid var(--lightgray);
-    border-radius: 5px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 35px;
-    font-size: 1rem;
-    list-style: circle;
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+  padding: 10px 10px 10px 35px;
+  font-size: 1rem;
+  list-style: circle;
 }
 
-
-
-li:has(> .folder-outer:not(.open)) > .folder-container > svg {
-	transform: rotate(90deg) !important;
-}
-
-footer {
-	text-align: center;
-}
-
-footer ul {
-	display: unset;
-}
-
-code { 
-	direction: ltr !important;
+html[dir="ltr"] .backlinks > ul {
+  padding: 10px 35px 10px 10px;
 }
 
 .search {
-    max-width: unset;
+  max-width: unset;
 }
 
 div.search.mobile-only {
-    padding-right: 10px !important;
+  padding-inline-end: 10px !important;
 }
 
-.center img {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+footer {
+  text-align: center;
 }
 
-
-// Farsi Blockquote
-
-.markdown-preview-view .farsi-blockquote {
-    direction: rtl;
-    
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 0 20px 0 0;
-
-    border-right: 2px solid var(--text-muted) !important;
-    border-left: unset;
-
-    
-    color: var(--text-muted);
-    /* color: gray; */
-}
-  
-.farsi-blockquote {
-    direction: rtl;
-    padding: 0 20px 0 0;
-
-    max-width: var(--max-width);
-
-    border-right: 2px solid var(--text-muted) !important;
-    border-left: unset;
-
-    font-family: Sahel;
-    font-size: 16px;
-    /* font-style: italic; */
-    color: var(--text-muted);   
-    max-width: var(--max-width);
-    margin: 0 auto!important;
-    width: var(--line-width-adaptive);
-    /* color: gray; */
+footer ul {
+  display: unset;
 }
 
-.farsi-blockquote-black {
-    color: var(--text-normal) !important;
-}
+// --- متن ---
 
-.farsi-blockquote::before {
-    content:unset;
-}
-
-blockquote .farsi-footer {
-    margin-top: 1em;
-    padding: 0;
-    color: var(--text-muted);
-    font-size: 10pt;
-    text-align: right;
-    font-family: Sahel;
-    font-style: normal;
-    color: gray;
-}
-
-.markdown-preview-view blockquote .farsi-footer {
-    margin-top: 1em !important;
-    padding: 0;
-    color: var(--text-muted);
-    font-size: 10pt;
-    text-align: right;
-    font-family: Sahel;
-    font-style: normal;
-    /* color: gray; */
-}
-
-blockquote footer:before {
-    content: '— ';
-}
-
-
-.markdown-preview-view blockquote {
-    direction: rtl;
-    
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 0 calc(var(--nested-padding)) 0 0;
-
-    border-right: 2px solid var(--text-muted) !important;
-    border-left: unset;
-
-    
-    color: var(--text-muted);
-    /* color: gray; */
-}
-  
+// در Quartz پایه، نوار نقل‌قول سمت چپ است؛ در متن راست‌به‌چپ باید کنار متن، یعنی سمت راست، بیاید.
 blockquote {
-    direction: rtl;
-
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 0 calc(var(--nested-padding)) 0 0;
-
-    // border-right: 2px solid var(--text-muted) !important;
-    border-left: unset;
-
-    font-family: Sahel;
-    font-size: 17px;
-    /* font-style: italic; */
-    color: var(--text-muted);   
-    width: var(--line-width-adaptive);
-    /* color: gray; */
+  border-left: 0;
+  padding-left: 0;
+  border-inline-start: 3px solid var(--secondary);
+  padding-inline-start: 1rem;
+  color: var(--darkgray);
 }
 
-blockquote::before {
-    content: none !important;
+code {
+  direction: ltr !important;
 }
 
-// English Blockquote
-
-.markdown-preview-view .english-blockquote {
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-left: 2px solid var(--text-muted) !important;
-    border-right: none !important;
-    direction: ltr;
-    color: var(--text-muted);
-    font-size: 19px !important;
-    font-style: italic;
-    padding: 0 0 0 20px;
-}
-  
-.english-blockquote {
-    direction: ltr;
-    
-    max-width: var(--max-width);
-
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: 0 0 0 20px;
-
-    border-left: 2px solid var(--text-muted) !important;
-    border-right: none !important;
-
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-style: italic;
-    color: var(--text-muted);   
+.content-meta[show-comma="true"] > span:not(:last-child) {
+  margin-inline-end: 8px !important;
+  margin-inline-start: 0 !important;
 }
 
-.english-blockquote::before {
-    content: none;
+.tags {
+  padding: 0 !important;
 }
-
-blockquote .english-footer {
-    margin-top: 1em;
-    padding: 0;
-    color: var(--text-muted);
-    font-size: 10pt;
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    text-transform: uppercase;
-}
-
-.markdown-preview-view blockquote .english-footer {
-    margin-top: 1em !important;
-    padding: 0;
-    color: var(--text-muted);
-    font-size: 10pt;
-    text-align: left;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: normal;
-    text-transform: uppercase;
-    
-}
-
-blockquote footer:before {
-    content: '— ';
-}
-
-
-// Highlight Coloring
 
 .text-highlight {
-    font-weight: normal;
-    background-color: transparent;
-    padding: 1px 5px 1px 5px;
-    border-radius: 5px;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 3px;
-    transition: background 200ms ease;
-    background-image: linear-gradient(120deg, var(--secondary), var(--secondary));
+  font-weight: normal;
+  background-color: transparent;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  transition: background 200ms ease;
+  background-image: linear-gradient(120deg, var(--secondary), var(--secondary));
 }
 
 .text-highlight:hover {
-    background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
-// Center tables
+.center img {
+  display: block !important;
+  margin-inline: auto !important;
+}
 
 .table-container > table {
-    margin: auto;
-}
-
-// Two columns in index page
-
-// .index ul{
-//     list-style-type: disc;
-//     -webkit-columns: 2;
-//     -moz-columns: 2;
-//     columns: 2;
-//     list-style-position: inside;
-// }
-
-/* Customize website's scrollbar like Mac OS
-Not supports in Firefox and IE */
-
-/* total width */
-body::-webkit-scrollbar {
-    background-color: #fff;
-    width: 16px;
-}
-
-/* background of the scrollbar except button or resizer */
-body::-webkit-scrollbar-track {
-    background-color: #fff;
-}
-
-/* scrollbar itself */
-body::-webkit-scrollbar-thumb {
-    background-color: #babac0;
-    border-radius: 16px;
-    border: 4px solid #fff;
-}
-
-/* set button(top and bottom of the scrollbar) */
-body::-webkit-scrollbar-button {
-    display:none;
+  margin: auto;
 }
 
 th {
-    text-align: center !important;
+  text-align: center !important;
 }
 
-// Katex LTR
+// --- نوار پیمایش (با رنگ‌های تم تا در حالت تیره سفید نشود) ---
+
+body::-webkit-scrollbar {
+  background-color: var(--light);
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--light);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--lightgray);
+  border-radius: 16px;
+  border: 3px solid var(--light);
+}
+
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+// --- شعر (برای صفحه‌هایی که بعداً شعر می‌گذارم؛ فعلاً در هیچ نوشته‌ای استفاده نشده) ---
 
 .poem-title {
-    text-align: center;
-    font-family: IranNastaliq !important;
+  text-align: center;
 }
 
 h3.poem-title::before {
-    content: none;
+  content: none;
 }
 
 .poem-verse-div {
-    margin: auto;
-    height: 30px;
-    text-align: center;
-    clear: both;
-    font-weight: 400;
+  margin: auto;
+  height: 30px;
+  text-align: center;
+  clear: both;
+  font-weight: 400;
 }
 
 .poem-right-verse-div {
-    width: 45%;
-    float: right;
-    text-align: left;
+  width: 45%;
+  float: right;
+  text-align: left;
 }
 
 .poem-left-verse-div {
-    width: 45%;
-    float: left;
-    text-align: right;
+  width: 45%;
+  float: left;
+  text-align: right;
 }
 
 .poem-reference {
-    display:table;
-    margin:0 auto;
-    direction: rtl;
-}
-
-.poem-verse-num {
-    position: relative !important;
-    right: -5% !important;
-    top: 34px !important;
-    line-height: 0px !important;
-    margin-top: 6px !important;
-    margin-right: 3px !important;
-    font-family: 'Sahel FD' !important;
-    font-weight: 500 !important;
-    font-size: 10px !important;
-    font-weight: bold !important;
-    font-style: normal !important;
-    color: var(--text-faint) !important;
+  display: table;
+  margin: 0 auto;
+  direction: rtl;
 }

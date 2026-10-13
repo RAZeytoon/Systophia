@@ -18,6 +18,18 @@ export default (() => {
     const iconPath = joinSegments(baseDir, "static/icon.png")
     const ogImagePath = `https://${cfg.baseUrl}/static/og-image.png`
 
+    // hreflang: صفحه‌های دارای فیلد translation (اسلاگ صفحه‌ی متناظر در زبان دیگر).
+    // فارسی در ریشه‌ی سایت است و انگلیسی زیر /en/.
+    const translation = fileData.frontmatter?.translation as string | undefined
+    const selfLang = cfg.locale?.split("-")[0] ?? "fa"
+    const otherLang = selfLang === "en" ? "fa" : "en"
+    const siteRoot = (cfg.baseUrl ?? "").replace(/\/en\/?$/, "")
+    const tail = (s: string) => (s === "index" ? "" : s)
+    const selfHref = `https://${cfg.baseUrl}/${tail(fileData.slug ?? "")}`
+    const alternate = translation
+      ? `https://${siteRoot}${selfLang === "en" ? "" : "/en"}/${tail(translation)}`
+      : undefined
+
     return (
       <head>
         <title>{title}</title>
@@ -38,6 +50,12 @@ export default (() => {
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
+        {alternate && (
+          <>
+            <link rel="alternate" hreflang={selfLang} href={selfHref} />
+            <link rel="alternate" hreflang={otherLang} href={alternate} />
+          </>
+        )}
         {css.map((href) => (
           <link key={href} href={href} rel="stylesheet" type="text/css" spa-preserve />
         ))}

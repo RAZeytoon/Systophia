@@ -19,8 +19,14 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
+import IndexOnly from "./IndexOnly"
+import LanguageSwitch from "./LanguageSwitch"
+import HubList from "./HubList"
 
 export {
+  HubList,
+  IndexOnly,
+  LanguageSwitch,
   ArticleTitle,
   Content,
   TagContent,

@@ -6,25 +6,26 @@ import * as Plugin from "./quartz/plugins"
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
+// نسخه‌ی انگلیسی با QUARTZ_LANG=en ساخته می‌شود (scripts/build-all.mjs) و زیر /en/ منتشر می‌شود.
+const isEn = process.env.QUARTZ_LANG === "en"
+
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "سیستوفیا",
+    pageTitle: isEn ? "Systophia" : "سیستوفیا",
     enableSPA: true,
     enablePopovers: true,
-    analytics: {
-      provider: "plausible",
-    },
-    locale: "fa-IR",
-    baseUrl: "systophia.ir",
+    analytics: null,
+    locale: isEn ? "en-US" : "fa-IR",
+    baseUrl: isEn ? "systophia.ir/en" : "systophia.ir",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
-      fontOrigin: "googleFonts",
+      fontOrigin: "local",
       cdnCaching: true,
       typography: {
         header: "Vazirmatn",
         body: "Vazirmatn",
-        code: "IBM Plex Mono",
+        code: "ui-monospace, Consolas, Menlo, monospace",
       },
       colors: {
         lightMode: {
@@ -56,7 +57,7 @@ const config: QuartzConfig = {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter", "filesystem"],
+        priority: ["frontmatter", "git", "filesystem"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
