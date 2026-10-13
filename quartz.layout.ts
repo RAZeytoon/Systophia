@@ -26,6 +26,8 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
+    Component.PrevNext(),
+    Component.RelatedNotes(),
     Component.HubList(),
     Component.IndexOnly(
       Component.RecentNotes({
@@ -66,10 +68,12 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.PageTitle()),
     Component.Search(),
     Component.DesktopOnly(Component.Darkmode()),
-    Component.LanguageSwitch(),
+    Component.DesktopOnly(Component.LanguageSwitch()),
     Component.DesktopOnly(explorer()),
     Component.DesktopOnly(Component.TableOfContents()),
 
+    // موبایل و تبلت: گراف و بک‌لینک‌ها زیر نوشته (نمونه‌ی جدای گراف، با شناسه‌ی «-m»)
+    Component.MobileOnly(Component.Graph()),
     Component.MobileOnly(Component.Backlinks()),
   ],
 }
@@ -86,7 +90,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.DesktopOnly(Component.PageTitle()),
     Component.Search(),
     Component.DesktopOnly(Component.Darkmode()),
-    Component.LanguageSwitch(),
+    Component.DesktopOnly(Component.LanguageSwitch()),
     Component.DesktopOnly(explorer()),
   ],
 }

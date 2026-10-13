@@ -1,5 +1,6 @@
 @use "../../styles/variables.scss" as *;
 
+// شناسه‌ها پسوند دارند (graph-container و graph-container-m)، پس با پیشوند انتخاب می‌شوند.
 .graph {
   & > h3 {
     font-size: 1rem;
@@ -15,7 +16,12 @@
     position: relative;
     overflow: hidden;
 
-    & > #global-graph-icon {
+    // روی صفحه‌های کوتاه (مثلاً موبایل افقی) از ارتفاع صفحه بیشتر نشود
+    @media all and (max-height: 600px) {
+      height: 200px;
+    }
+
+    & > [id^="global-graph-icon"] {
       color: var(--dark);
       opacity: 0.5;
       width: 18px;
@@ -35,7 +41,7 @@
     }
   }
 
-  & > #global-graph-outer {
+  & > [id^="global-graph-outer"] {
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -50,7 +56,7 @@
       display: inline-block;
     }
 
-    & > #global-graph-container {
+    & > [id^="global-graph-container"] {
       border: 1px solid var(--lightgray);
       background-color: var(--light);
       border-radius: 5px;
@@ -59,11 +65,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      height: 60vh;
-      width: 50vw;
+      height: 70vh;
+      width: 70vw;
 
       @media all and (max-width: $fullPageWidth) {
-        width: 90%;
+        width: 94%;
+        height: 80vh;
       }
     }
   }

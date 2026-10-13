@@ -22,9 +22,13 @@ import Breadcrumbs from "./Breadcrumbs"
 import IndexOnly from "./IndexOnly"
 import LanguageSwitch from "./LanguageSwitch"
 import HubList from "./HubList"
+import RelatedNotes from "./RelatedNotes"
+import PrevNext from "./PrevNext"
 
 export {
   HubList,
+  RelatedNotes,
+  PrevNext,
   IndexOnly,
   LanguageSwitch,
   ArticleTitle,

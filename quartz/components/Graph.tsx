@@ -29,14 +29,14 @@ const defaultOptions: GraphOptions = {
   localGraph: {
     drag: true,
     zoom: true,
-    depth: 1,
+    depth: 2,
     scale: 1.1,
     repelForce: 0.5,
     centerForce: 0.3,
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
-    showTags: true,
+    showTags: false,
     removeTags: [],
     focusOnHover: false,
   },
@@ -44,13 +44,13 @@ const defaultOptions: GraphOptions = {
     drag: true,
     zoom: true,
     depth: -1,
-    scale: 0.9,
-    repelForce: 0.5,
+    scale: 0.8,
+    repelForce: 0.6,
     centerForce: 0.3,
     linkDistance: 30,
     fontSize: 0.6,
     opacityScale: 1,
-    showTags: true,
+    showTags: false,
     removeTags: [],
     focusOnHover: true,
   },
@@ -60,14 +60,16 @@ export default ((opts?: GraphOptions) => {
   const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
     const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
+    // نمونه‌ی موبایل شناسه‌های جدا دارد تا با نمونه‌ی دسکتاپ تداخل نکند
+    const sfx = displayClass?.includes("mobile-only") ? "-m" : ""
     return (
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
-          <div id="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
+          <div id={"graph-container" + sfx} data-cfg={JSON.stringify(localGraph)}></div>
           <svg
             version="1.1"
-            id="global-graph-icon"
+            id={"global-graph-icon" + sfx}
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             x="0px"
@@ -91,8 +93,8 @@ export default ((opts?: GraphOptions) => {
             />
           </svg>
         </div>
-        <div id="global-graph-outer">
-          <div id="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+        <div id={"global-graph-outer" + sfx}>
+          <div id={"global-graph-container" + sfx} data-cfg={JSON.stringify(globalGraph)}></div>
         </div>
       </div>
     )

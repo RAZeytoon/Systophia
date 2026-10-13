@@ -1,4 +1,5 @@
 @use "./base.scss";
+@use "./variables.scss" as *;
 
 // فونت وزیرمتن روی خود سایت میزبانی می‌شود (مجوز OFL)، نه از Google Fonts
 @font-face {
@@ -213,4 +214,79 @@ h3.poem-title::before {
   display: table;
   margin: 0 auto;
   direction: rtl;
+}
+
+// --- چیدمان واکنش‌گرا ---
+
+// دسکتاپ (عرض بیشتر از $fullPageWidth): ستون‌های کناری ثابت‌اند. padding باریک می‌شود تا گراف و
+// اکسپلورر جا شوند، و اگر محتوای ستون از ارتفاع صفحه بیشتر شد، خودش اسکرول می‌خورد (نه اینکه بریده شود).
+@media all and (min-width: #{$fullPageWidth + 1px}) {
+  .page > #quartz-body .sidebar {
+    padding: 0 1.25rem;
+    max-height: calc(100vh - #{$topSpacing});
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+
+// نمایشگرهای بزرگ: متن کمی درشت‌تر تا ستون وسط توی صفحه گم نشود
+@media all and (min-width: 1700px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+// تبلت و موبایل: ستون‌ها زیر هم‌اند. سربرگ در یک ردیف بشکند و ستون پایین (گراف، بک‌لینک‌ها) تمام‌عرض باشد
+@media all and (max-width: #{$fullPageWidth}) {
+  .page > #quartz-body .sidebar.left {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.5rem;
+  }
+
+  // ترتیب در موبایل: سربرگ، جست‌وجو، نوشته، و بعد بقیه‌ی ستون راست (گراف، بک‌لینک‌ها).
+  // display: contents باعث می‌شود فرزندان ستون راست با ستون وسط هم‌ردیف مرتب شوند.
+  .page > #quartz-body .sidebar.left {
+    order: -2;
+  }
+
+  .page > #quartz-body .sidebar.right {
+    display: contents;
+  }
+
+  .page > #quartz-body .sidebar.right > .search {
+    order: -1;
+    margin-top: 1rem;
+  }
+
+  .page > #quartz-body .center {
+    order: 0;
+  }
+
+  .page > #quartz-body .sidebar.right > :not(.search) {
+    order: 2;
+    margin-top: 1.25rem;
+  }
+
+  .page > #quartz-body .sidebar.right > :last-child {
+    padding-bottom: 2rem;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .page article > h1 {
+    font-size: 1.6rem;
+  }
+
+  article table {
+    font-size: 0.9rem;
+  }
+
+  blockquote {
+    padding-inline-start: 0.75rem;
+  }
+
+  .hub-list details {
+    padding: 0.3rem 0.5rem;
+  }
 }

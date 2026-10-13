@@ -335,20 +335,24 @@ async function renderGraph(container: string, fullSlug: FullSlug) {
   })
 }
 
-function renderGlobalGraph() {
+// دو نمونه‌ی گراف در صفحه هست: یکی برای دسکتاپ (بدون پسوند) و یکی برای موبایل/تبلت (پسوند «-m»).
+// فقط نمونه‌ای که الان دیده می‌شود رندر می‌شود، و با تغییر اندازه‌ی پنجره دوباره رندر می‌شود.
+const GRAPH_SUFFIXES = ["", "-m"]
+
+function renderGlobalGraph(sfx: string) {
   const slug = getFullSlug(window)
-  const container = document.getElementById("global-graph-outer")
+  const container = document.getElementById("global-graph-outer" + sfx)
   const sidebar = container?.closest(".sidebar") as HTMLElement
   container?.classList.add("active")
   if (sidebar) {
     sidebar.style.zIndex = "1"
   }
 
-  renderGraph("global-graph-container", slug)
+  renderGraph("global-graph-container" + sfx, slug)
 
   function hideGlobalGraph() {
     container?.classList.remove("active")
-    const graph = document.getElementById("global-graph-container")
+    const graph = document.getElementById("global-graph-container" + sfx)
     if (sidebar) {
       sidebar.style.zIndex = "unset"
     }
@@ -362,9 +366,41 @@ function renderGlobalGraph() {
 document.addEventListener("nav", async (e: CustomEventMap["nav"]) => {
   const slug = e.detail.url
   addToVisited(simplifySlug(slug))
-  await renderGraph("graph-container", slug)
 
-  const containerIcon = document.getElementById("global-graph-icon")
-  containerIcon?.addEventListener("click", renderGlobalGraph)
-  window.addCleanup(() => containerIcon?.removeEventListener("click", renderGlobalGraph))
+  const renderLocal = async () => {
+    for (const s of GRAPH_SUFFIXES) {
+      const el = document.getElementById("graph-container" + s)
+      if (el && el.offsetWidth > 0) {
+        await renderGraph("graph-container" + s, slug)
+      }
+    }
+  }
+  await renderLocal()
+
+  for (const s of GRAPH_SUFFIXES) {
+    const icon = document.getElementById("global-graph-icon" + s)
+    const handler = () => renderGlobalGraph(s)
+    icon?.addEventListener("click", handler)
+    window.addCleanup(() => icon?.removeEventListener("click", handler))
+  }
+
+  // با تغییر اندازه یا چرخش صفحه، گراف با اندازه‌ی جدید دوباره ساخته شود
+  let timer: number | undefined
+  let lastWidth = window.innerWidth
+  const onResize = () => {
+    if (window.innerWidth === lastWidth) return // مثلاً بالا آمدن نوار آدرس موبایل
+    lastWidth = window.innerWidth
+    window.clearTimeout(timer)
+    timer = window.setTimeout(async () => {
+      await renderLocal()
+      for (const s of GRAPH_SUFFIXES) {
+        const outer = document.getElementById("global-graph-outer" + s)
+        if (outer?.classList.contains("active")) {
+          await renderGraph("global-graph-container" + s, slug)
+        }
+      }
+    }, 200)
+  }
+  window.addEventListener("resize", onResize)
+  window.addCleanup(() => window.removeEventListener("resize", onResize))
 })
