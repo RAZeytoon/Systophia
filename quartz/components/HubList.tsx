@@ -16,6 +16,10 @@ const HubList: QuartzComponent = ({ fileData, allFiles, cfg }: QuartzComponentPr
   if (parts.length < 2 || parts[parts.length - 1] !== parts[parts.length - 2]) {
     return null
   }
+  // هاب‌هایی که فهرست دست‌نویس دارند، با «hub-list: false» از فهرست خودکار کنار می‌روند
+  if (fileData.frontmatter?.["hub-list"] === false) {
+    return null
+  }
   const folder = parts.slice(0, -1).join("/") + "/"
   const items = allFiles.filter(
     (f) => f.slug && f.slug.startsWith(folder) && f.slug !== slug && !f.slug.endsWith("/index"),

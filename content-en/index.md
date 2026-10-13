@@ -49,3 +49,7 @@ A structured course, from the definition of a system to gathering and validating
 - [[design/automating-a-bad-smell|Automating a bad smell]]: why making a broken process "smart" only repeats its fault faster.
 - [[analysis/dikw|From data to insight: the pyramid that guides understanding (DIKW)]]
 - [[analysis/theory-first-or-data-first|Theory first or data first: two views of data analysis]]
+
+## Lipstick on a pig
+
+Cosmetic repair does not change structure. Four takes on that idea, with notes on three books: [[lipstick-on-a-pig/index|Lipstick on a Pig]].

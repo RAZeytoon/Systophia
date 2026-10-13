@@ -17,7 +17,14 @@ export default (() => {
     const top = (fileData.slug as string).split("/")[0]
     const series = allFiles
       .filter((f) => f.slug && f.slug.split("/")[0] === top && numOf(f.filePath) !== null)
-      .sort((a, b) => numOf(a.filePath)! - numOf(b.filePath)!)
+      // اول پوشه‌ی فصل (۰۱ فصل اول، ۰۲ فصل دوم…) و بعد شماره‌ی درس؛ چون شماره‌ی «۰۸» در دو فصل تکرار شده
+      .sort((a, b) => {
+        const da = a.slug!.split("/").slice(0, -1).join("/")
+        const db = b.slug!.split("/").slice(0, -1).join("/")
+        return (
+          da.localeCompare(db, undefined, { numeric: true }) || numOf(a.filePath)! - numOf(b.filePath)!
+        )
+      })
     const i = series.findIndex((f) => f.slug === fileData.slug)
     if (i < 0) return null
     const prev = i > 0 ? series[i - 1] : null

@@ -1,11 +1,12 @@
 // نقطه‌ی شکست دسکتاپ = $pageWidth + 2 * $sidePanelWidth.
-// مقدار پیش‌فرض Quartz (۷۵۰ و ۳۸۰) یعنی ۱۵۱۰ پیکسل؛ لپ‌تاپ‌های ۱۳۶۶ و ۱۴۴۰ هم چیدمان موبایل می‌گرفتند.
-// اینجا ۷۲۰ + ۲×۲۷۰ = ۱۲۶۰ پیکسل است، پس ۱۲۸۰ به بالا سه‌ستونی است.
-$pageWidth: 720px;
+// مقدار پیش‌فرض Quartz (۷۵۰ و ۳۸۰) یعنی ۱۵۱۰ پیکسل؛ لپ‌تاپ‌های ۱۳۶۶ و ۱۴۴۰ هم چیدمان موبایل می‌گرفتند
+// و گراف دیده نمی‌شد. لپ‌تاپ‌ها بسته به مقیاس نمایشگر ۱۲۸۰ تا ۱۵۳۶ پیکسل عرض CSS دارند.
+// اینجا ۷۰۰ + ۲×۲۴۰ = ۱۱۸۰ پیکسل است، پس همه‌ی لپ‌تاپ‌ها و پنجره‌های نیمه‌بزرگ سه‌ستونی‌اند.
+$pageWidth: 700px;
 $mobileBreakpoint: 600px;
 $tabletBreakpoint: 1000px;
-$sidePanelWidth: 270px;
-$topSpacing: 6rem;
+$sidePanelWidth: 240px;
+$topSpacing: 5rem;
 $fullPageWidth: $pageWidth + 2 * $sidePanelWidth;
 $boldWeight: 700;
 $semiBoldWeight: 600;

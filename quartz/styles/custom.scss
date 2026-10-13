@@ -221,9 +221,21 @@ h3.poem-title::before {
 // دسکتاپ (عرض بیشتر از $fullPageWidth): ستون‌های کناری ثابت‌اند. padding باریک می‌شود تا گراف و
 // اکسپلورر جا شوند، و اگر محتوای ستون از ارتفاع صفحه بیشتر شد، خودش اسکرول می‌خورد (نه اینکه بریده شود).
 @media all and (min-width: #{$fullPageWidth + 1px}) {
-  .page > #quartz-body .sidebar {
+  // «.sidebar.right» هم جدا آمده چون قاعده‌ی پایه‌ی Quartz برای آن (flex-wrap: wrap) اولویت بیشتری از «.sidebar» دارد
+  .page > #quartz-body .sidebar,
+  .page > #quartz-body .sidebar.right {
     padding: 0 1.25rem;
     max-height: calc(100vh - #{$topSpacing});
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    // ستون راست در Quartz flex-wrap: wrap دارد؛ با max-height، آیتم‌ها به‌جای اسکرول در ستون‌های افقی می‌شکستند
+    flex-wrap: nowrap;
+  }
+
+  // اکسپلورر بلند است؛ با اسکرول داخلی، فهرست مطالب زیرش همیشه در دید می‌ماند
+  .page > #quartz-body .sidebar .explorer #explorer-content {
+    max-height: 26vh;
     overflow-y: auto;
     scrollbar-width: thin;
   }
