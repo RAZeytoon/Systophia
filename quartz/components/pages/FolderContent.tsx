@@ -3,7 +3,7 @@ import path from "path"
 
 import style from "../styles/listPage.scss"
 import { PageList, SortFn } from "../PageList"
-import { stripSlashes, simplifySlug } from "../../util/path"
+import { stripSlashes, simplifySlug, resolveRelative, FullSlug } from "../../util/path"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
@@ -34,6 +34,12 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       const isDirectChild = fileParts.length === folderParts.length + 1
       return prefixed && isDirectChild
     })
+    // پوشه‌ای که یادداشت هم‌نامش (هاب) دارد، به همان یادداشت می‌رود، نه به فهرست خودکار
+    const lastPart = folderSlug.split(path.posix.sep).pop()
+    const hub = allFiles.find((file) => file.slug === `${folderSlug}/${lastPart}`)
+    const hubHref = hub
+      ? resolveRelative(fileData.slug as FullSlug, hub.slug as FullSlug)
+      : undefined
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = ["popover-hint", ...cssClasses].join(" ")
     const listProps = {
@@ -49,6 +55,9 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
     return (
       <div class={classes}>
+        {hubHref && (
+          <script dangerouslySetInnerHTML={{ __html: `location.replace(${JSON.stringify(hubHref)})` }} />
+        )}
         <article>{content}</article>
         <div class="page-listing">
           {options.showFolderCount && (

@@ -2,6 +2,7 @@
 date: 2025-02-03
 title: "دیپلماسی عشقم کجایی؟"
 description: "جستاری درباره‌ی بازماندن پرونده‌ی حاج احمد متوسلیان و یک استعاره‌ی تازه برای ادبیات دیپلماسی."
+translation: essays/diplomacy-my-love-where-are-you
 ---
 
 ![[Pasted image 20250203140704.png]]

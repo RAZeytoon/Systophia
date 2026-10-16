@@ -2,6 +2,7 @@
 date: 2025-05-25
 title: "ارائه مدل تحول نرم‌افزاری تا ERP"
 description: "مدلی پنج‌مرحله‌ای برای تشخیص اینکه سازمان کِی آماده‌ی ورود به ERP است."
+translation: essays/from-software-transformation-to-erp
 ---
 
 # چکیده (Abstract)

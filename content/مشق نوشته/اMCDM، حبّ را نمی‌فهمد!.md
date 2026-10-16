@@ -2,6 +2,7 @@
 date: 2025-02-03
 title: "MCDM، حبّ را نمی‌فهمد!"
 description: "چرا روش‌های تصمیم‌گیری چندمعیاره در انتخاب‌های عاطفی و روابط انسانی خوب جواب نمی‌دهند؟"
+translation: essays/mcdm-does-not-understand-love
 ---
 
 اMCDM یا Multiple Criteria Decision Making به مجموعه‌ای از روش‌های تصمیم‌گیری گفته می‌شود که برای انتخاب بین چندین گزینه با در نظر گرفتن چندین معیار مختلف به کار می‌روند. در این روش‌ها، ابتدا معیارهای موردنظر و وزن هر معیار مشخص می‌شوند، سپس گزینه‌ها با استفاده از این معیارها و وزن‌دهی به آن‌ها، مورد ارزیابی و رتبه‌بندی قرار می‌گیرند (برای بیشتر دانستن، گوگل کنید و یا از [ویکی‌پدیا فارسی](https://web.archive.org/web/20240215014705/https://fa.wikipedia.org/wiki/%D8%AA%D8%B5%D9%85%DB%8C%D9%85%E2%80%8C%DA%AF%DB%8C%D8%B1%DB%8C_%DA%86%D9%86%D8%AF%D9%85%D8%B9%DB%8C%D8%A7%D8%B1%D9%87) یا [ویکی‌پدیا انگلیسی](https://web.archive.org/web/20240215014705/https://en.wikipedia.org/wiki/Multiple-criteria_decision_analysis) بخوانید و یا فیلم زیر را که از [یوتیوب](https://web.archive.org/web/20240215014705/https://www.youtube.com/watch?v=7OoKJHvsUbo) برداشته شده، ببینید و یا همین‌جا به خاطر عدم دسترسی به دورزننده‌ی فیلترها، مشاهده کنید)

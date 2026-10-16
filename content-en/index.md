@@ -44,12 +44,15 @@ A structured course, from the definition of a system to gathering and validating
 - [[foundations/validating-requirements|Validating requirements]]
 - [[foundations/expert-systems|Expert systems and their role in analysis]]
 
-## Essays
+## Browse by theme
 
-- [[design/automating-a-bad-smell|Automating a bad smell]]: why making a broken process "smart" only repeats its fault faster.
-- [[analysis/dikw|From data to insight: the pyramid that guides understanding (DIKW)]]
-- [[analysis/theory-first-or-data-first|Theory first or data first: two views of data analysis]]
-
-## Lipstick on a pig
-
-Cosmetic repair does not change structure. Four takes on that idea, with notes on three books: [[lipstick-on-a-pig/index|Lipstick on a Pig]].
+- [[system/index|System]]: the concept itself, its three components, and why a systems view became necessary.
+- [[foundations/index|Foundations of systems analysis]]: the full twenty-lesson course above.
+- [[analysis/index|Analysis and systems analysis]]: DIKW, theory first or data first, Q-Analysis, and whether analysis destroys wholes.
+- [[design/index|Design and systems design]]: the order of actions before technology, and [[design/automating-a-bad-smell|automating a bad smell]].
+- [[complexity/index|Complex systems and complexity]]: seeing hidden structure.
+- [[conflict/index|Conflict and conflicting systems]]: multi-perspective observability and stakeholders.
+- [[crisis/index|Crisis and critical systems]]: institutions, meaning and "theatrical order".
+- [[macro-systems/index|Macro systems]]: culture, values and laws as the setting of smaller systems.
+- [[lipstick-on-a-pig/index|Lipstick on a Pig]]: cosmetic repair versus structural change, with notes on three books.
+- [[essays/index|Practice essays]]: shorter, more personal pieces.
