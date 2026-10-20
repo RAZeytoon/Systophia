@@ -54,5 +54,6 @@ A structured course, from the definition of a system to gathering and validating
 - [[conflict/index|Conflict and conflicting systems]]: multi-perspective observability and stakeholders.
 - [[crisis/index|Crisis and critical systems]]: institutions, meaning and "theatrical order".
 - [[macro-systems/index|Macro systems]]: culture, values and laws as the setting of smaller systems.
+- [[decision-methods/index|Decision and optimisation methods]]: multi-attribute decision making, game theory and bargaining, and supply chain network design, from my doctoral courses.
 - [[lipstick-on-a-pig/index|Lipstick on a Pig]]: cosmetic repair versus structural change, with notes on three books.
 - [[essays/index|Practice essays]]: shorter, more personal pieces.
